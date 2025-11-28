@@ -20,5 +20,8 @@ COPY --from=builder /app/build/mcp-proxy /main
 COPY --from=builder /app/config.json /config/config.json
 COPY --from=builder /app/testdata /testdata
 
+ENV HIERARCHY_PATH=/testdata
+ENV PORT=8080
+
 ENTRYPOINT ["/main"]
 CMD ["--config", "/config/config.json"]

@@ -5,7 +5,7 @@
     "name": "MCP Lazy Load Proxy - PERFORMANCE EDITION",
     "version": "5.2.0",
     "type": "sse",
-    "hierarchyPath": "c:\\All-Beta-Builds\\lazy-mcp\\testdata\\mcp_hierarchy",
+    "hierarchyPath": "${HIERARCHY_PATH:-testdata/mcp_hierarchy}",
     "options": {
       "lazyLoad": true
     }
