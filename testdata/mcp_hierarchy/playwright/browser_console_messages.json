@@ -1,0 +1,18 @@
+{
+  "tools": {
+    "browser_console_messages": {
+      "description": "Returns all console messages",
+      "maps_to": "browser_console_messages",
+      "server": "playwright",
+      "inputSchema": {
+        "properties": {
+          "onlyErrors": {
+            "description": "Only return error messages",
+            "type": "boolean"
+          }
+        },
+        "type": "object"
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "tools": {
+    "list_commits": {
+      "description": "Get list of commits of a branch in a GitHub repository",
+      "maps_to": "list_commits",
+      "server": "github",
+      "inputSchema": {
+        "properties": {
+          "owner": {
+            "type": "string"
+          },
+          "page": {
+            "type": "number"
+          },
+          "perPage": {
+            "type": "number"
+          },
+          "repo": {
+            "type": "string"
+          },
+          "sha": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "owner",
+          "repo"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

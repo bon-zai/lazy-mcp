@@ -1,0 +1,31 @@
+{
+  "tools": {
+    "browser_tabs": {
+      "description": "List, create, close, or select a browser tab.",
+      "maps_to": "browser_tabs",
+      "server": "playwright",
+      "inputSchema": {
+        "properties": {
+          "action": {
+            "description": "Operation to perform",
+            "enum": [
+              "list",
+              "new",
+              "close",
+              "select"
+            ],
+            "type": "string"
+          },
+          "index": {
+            "description": "Tab index, used for close/select. If omitted for close, current tab is closed.",
+            "type": "number"
+          }
+        },
+        "required": [
+          "action"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

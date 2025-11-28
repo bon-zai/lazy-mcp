@@ -1,0 +1,12 @@
+{
+  "tools": {
+    "browser_snapshot": {
+      "description": "Capture accessibility snapshot of the current page, this is better than screenshot",
+      "maps_to": "browser_snapshot",
+      "server": "playwright",
+      "inputSchema": {
+        "type": "object"
+      }
+    }
+  }
+}

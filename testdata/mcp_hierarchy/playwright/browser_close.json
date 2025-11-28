@@ -1,0 +1,12 @@
+{
+  "tools": {
+    "browser_close": {
+      "description": "Close the page",
+      "maps_to": "browser_close",
+      "server": "playwright",
+      "inputSchema": {
+        "type": "object"
+      }
+    }
+  }
+}

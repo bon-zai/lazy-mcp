@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 
+	"github.com/joho/godotenv"
 	"github.com/voicetreelab/lazy-mcp/internal/config"
 	"github.com/voicetreelab/lazy-mcp/internal/server"
 )
@@ -12,6 +13,9 @@ import (
 var BuildVersion = "dev"
 
 func main() {
+	// Load .env file if it exists (optional, non-fatal)
+	_ = godotenv.Load()
+
 	conf := flag.String("config", "config.json", "path to config file or a http(s) url")
 	port := flag.String("port", "", "port to listen on (overrides config), e.g. '8080' or ':8080'")
 	_ = flag.String("hierarchy", "testdata/mcp_hierarchy", "path to hierarchy directory")

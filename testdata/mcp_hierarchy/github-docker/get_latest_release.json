@@ -1,0 +1,26 @@
+{
+  "tools": {
+    "get_latest_release": {
+      "description": "Get the latest release in a GitHub repository",
+      "maps_to": "get_latest_release",
+      "server": "github-docker",
+      "inputSchema": {
+        "properties": {
+          "owner": {
+            "description": "Repository owner",
+            "type": "string"
+          },
+          "repo": {
+            "description": "Repository name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "owner",
+          "repo"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

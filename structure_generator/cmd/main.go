@@ -199,7 +199,8 @@ func fetchToolsFromServer(ctx context.Context, name string, config ServerConfig)
 	log.Printf("[%s] Client created, initializing...", name)
 
 	// Create our own context with timeout (don't use the passed ctx)
-	localCtx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+	// Increased to 120 seconds to handle slow servers (Zen MCP, NPX downloads, large packages)
+	localCtx, cancel := context.WithTimeout(context.Background(), 120*time.Second)
 	defer cancel()
 
 	// Initialize connection

@@ -1,24 +1,83 @@
 {
   "mcpProxy": {
     "baseURL": "http://localhost",
-    "addr": ":9090",
-    "name": "MCP Lazy Load Proxy - End to End Example",
-    "version": "1.0.0",
-    "type": "stdio",
-    "hierarchyPath": "testdata/mcp_hierarchy",
+    "addr": ":${PORT:-8080}",
+    "name": "MCP Lazy Load Proxy - PERFORMANCE EDITION",
+    "version": "5.2.0",
+    "type": "sse",
+    "hierarchyPath": "c:\\All-Beta-Builds\\lazy-mcp\\testdata\\mcp_hierarchy",
     "options": {
       "lazyLoad": true
     }
   },
   "mcpServers": {
-    "serena": {
+    "playwright": {
       "transportType": "stdio",
-      "command": "uvx",
+      "command": "cmd",
       "args": [
-        "serena",
-        "start-mcp-server",
-        "--context",
-        "claude-code"
+        "/c",
+        "npx",
+        "-y",
+        "@playwright/mcp"
+      ],
+      "env": {},
+      "options": {
+        "lazyLoad": true
+      }
+    },
+    "puppeteer": {
+      "transportType": "stdio",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-puppeteer"
+      ],
+      "env": {},
+      "options": {
+        "lazyLoad": true
+      }
+    },
+    "filesystem": {
+      "transportType": "stdio",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "c:\\"
+      ],
+      "env": {},
+      "options": {
+        "lazyLoad": true
+      }
+    },
+    "mem0": {
+      "transportType": "stdio",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@mem0/mcp-server"
+      ],
+      "env": {
+        "MEM0_API_KEY": "${MEM0_API_KEY}"
+      },
+      "options": {
+        "lazyLoad": true
+      }
+    },
+    "sequential-thinking": {
+      "transportType": "stdio",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
       ],
       "env": {},
       "options": {
@@ -27,8 +86,10 @@
     },
     "github": {
       "transportType": "stdio",
-      "command": "npx",
+      "command": "cmd",
       "args": [
+        "/c",
+        "npx",
         "-y",
         "@modelcontextprotocol/server-github"
       ],
@@ -39,31 +100,58 @@
         "lazyLoad": true
       }
     },
-    "filesystem": {
+    "github-docker": {
       "transportType": "stdio",
-      "command": "npx",
+      "command": "docker",
       "args": [
-        "-y",
-        "@modelcontextprotocol/server-filesystem",
-        "${HOME}/repos",
-        "${HOME}/Documents"
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "GITHUB_PERSONAL_ACCESS_TOKEN",
+        "ghcr.io/github/github-mcp-server"
       ],
-      "env": {},
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+      },
       "options": {
         "lazyLoad": true
       }
     },
-    "everything": {
+    "firecrawl": {
       "transportType": "stdio",
-      "command": "npx",
+      "command": "cmd",
       "args": [
+        "/c",
+        "npx",
         "-y",
-        "@modelcontextprotocol/server-everything"
+        "firecrawl-mcp"
       ],
-      "env": {},
+      "env": {
+        "FIRECRAWL_API_KEY": "${FIRECRAWL_API_KEY}"
+      },
       "options": {
         "lazyLoad": true
       }
+    },
+    "tavily": {
+      "options": {
+        "lazyLoad": true
+      },
+      "env": {
+        "TAVILY_API_KEY": "${TAVILY_API_KEY}"
+      },
+      "transportType": "stdio",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "mcp-remote",
+        "https://mcp.tavily.com/mcp/",
+        "--header",
+        "Authorization:Bearer ${TAVILY_API_KEY}"
+      ]
     }
   }
 }

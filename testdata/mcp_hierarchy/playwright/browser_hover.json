@@ -1,0 +1,26 @@
+{
+  "tools": {
+    "browser_hover": {
+      "description": "Hover over element on page",
+      "maps_to": "browser_hover",
+      "server": "playwright",
+      "inputSchema": {
+        "properties": {
+          "element": {
+            "description": "Human-readable element description used to obtain permission to interact with the element",
+            "type": "string"
+          },
+          "ref": {
+            "description": "Exact target element reference from the page snapshot",
+            "type": "string"
+          }
+        },
+        "required": [
+          "element",
+          "ref"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

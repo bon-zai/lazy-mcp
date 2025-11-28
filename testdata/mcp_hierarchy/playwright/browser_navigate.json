@@ -1,0 +1,21 @@
+{
+  "tools": {
+    "browser_navigate": {
+      "description": "Navigate to a URL",
+      "maps_to": "browser_navigate",
+      "server": "playwright",
+      "inputSchema": {
+        "properties": {
+          "url": {
+            "description": "The URL to navigate to",
+            "type": "string"
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

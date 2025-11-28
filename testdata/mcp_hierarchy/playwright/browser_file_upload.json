@@ -1,0 +1,21 @@
+{
+  "tools": {
+    "browser_file_upload": {
+      "description": "Upload one or multiple files",
+      "maps_to": "browser_file_upload",
+      "server": "playwright",
+      "inputSchema": {
+        "properties": {
+          "paths": {
+            "description": "The absolute paths to the files to upload. Can be single file or multiple files. If omitted, file chooser is cancelled.",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      }
+    }
+  }
+}

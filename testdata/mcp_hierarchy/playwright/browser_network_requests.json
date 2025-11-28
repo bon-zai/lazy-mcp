@@ -1,0 +1,12 @@
+{
+  "tools": {
+    "browser_network_requests": {
+      "description": "Returns all network requests since loading the page",
+      "maps_to": "browser_network_requests",
+      "server": "playwright",
+      "inputSchema": {
+        "type": "object"
+      }
+    }
+  }
+}

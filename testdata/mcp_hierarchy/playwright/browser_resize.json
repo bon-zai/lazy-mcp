@@ -1,0 +1,26 @@
+{
+  "tools": {
+    "browser_resize": {
+      "description": "Resize the browser window",
+      "maps_to": "browser_resize",
+      "server": "playwright",
+      "inputSchema": {
+        "properties": {
+          "height": {
+            "description": "Height of the browser window",
+            "type": "number"
+          },
+          "width": {
+            "description": "Width of the browser window",
+            "type": "number"
+          }
+        },
+        "required": [
+          "width",
+          "height"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "tools": {
+    "firecrawl_map": {
+      "description": "\nMap a website to discover all indexed URLs on the site.\n\n**Best for:** Discovering URLs on a website before deciding what to scrape; finding specific sections of a website.\n**Not recommended for:** When you already know which specific URL you need (use scrape or batch_scrape); when you need the content of the pages (use scrape after mapping).\n**Common mistakes:** Using crawl to discover URLs instead of map.\n**Prompt Example:** \"List all URLs on example.com.\"\n**Usage Example:**\n```json\n{\n  \"name\": \"firecrawl_map\",\n  \"arguments\": {\n    \"url\": \"https://example.com\"\n  }\n}\n```\n**Returns:** Array of URLs found on the site.\n",
+      "maps_to": "firecrawl_map",
+      "server": "firecrawl",
+      "inputSchema": {
+        "properties": {
+          "ignoreQueryParameters": {
+            "type": "boolean"
+          },
+          "includeSubdomains": {
+            "type": "boolean"
+          },
+          "limit": {
+            "type": "number"
+          },
+          "search": {
+            "type": "string"
+          },
+          "sitemap": {
+            "enum": [
+              "include",
+              "skip",
+              "only"
+            ],
+            "type": "string"
+          },
+          "url": {
+            "format": "uri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

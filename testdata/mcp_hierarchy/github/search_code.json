@@ -1,0 +1,36 @@
+{
+  "tools": {
+    "search_code": {
+      "description": "Search for code across GitHub repositories",
+      "maps_to": "search_code",
+      "server": "github",
+      "inputSchema": {
+        "properties": {
+          "order": {
+            "enum": [
+              "asc",
+              "desc"
+            ],
+            "type": "string"
+          },
+          "page": {
+            "minimum": 1,
+            "type": "number"
+          },
+          "per_page": {
+            "maximum": 100,
+            "minimum": 1,
+            "type": "number"
+          },
+          "q": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "q"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

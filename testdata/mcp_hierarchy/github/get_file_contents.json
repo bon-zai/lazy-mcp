@@ -1,0 +1,35 @@
+{
+  "tools": {
+    "get_file_contents": {
+      "description": "Get the contents of a file or directory from a GitHub repository",
+      "maps_to": "get_file_contents",
+      "server": "github",
+      "inputSchema": {
+        "properties": {
+          "branch": {
+            "description": "Branch to get contents from",
+            "type": "string"
+          },
+          "owner": {
+            "description": "Repository owner (username or organization)",
+            "type": "string"
+          },
+          "path": {
+            "description": "Path to the file or directory",
+            "type": "string"
+          },
+          "repo": {
+            "description": "Repository name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "owner",
+          "repo",
+          "path"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

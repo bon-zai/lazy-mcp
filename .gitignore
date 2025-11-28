@@ -146,3 +146,7 @@ fabric.properties
 config_prod.json
 end_to_end_example/
 **.log
+.env
+.env.example
+
+.env.local

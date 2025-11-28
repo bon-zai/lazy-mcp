@@ -1,0 +1,26 @@
+{
+  "tools": {
+    "add-memory": {
+      "description": "Add a new memory. This method is called everytime the user informs anything about themselves, their preferences, or anything that has any relevent information whcih can be useful in the future conversation. This can also be called when the user asks you to remember something.",
+      "maps_to": "add-memory",
+      "server": "mem0",
+      "inputSchema": {
+        "properties": {
+          "content": {
+            "description": "The content to store in memory",
+            "type": "string"
+          },
+          "userId": {
+            "description": "User ID for memory storage. If not provided explicitly, use a generic user ID like, 'mem0-mcp-user'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "content",
+          "userId"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

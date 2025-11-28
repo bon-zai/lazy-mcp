@@ -1,0 +1,52 @@
+{
+  "tools": {
+    "tavily_extract": {
+      "description": "Extract and process content from specific web pages. Use this tool when you have URLs and need to get the full text content from those pages. Returns clean, structured content in markdown or text format. Useful for reading articles, documentation, or any web page content that you need to analyze or reference.",
+      "maps_to": "tavily_extract",
+      "server": "tavily",
+      "inputSchema": {
+        "properties": {
+          "extract_depth": {
+            "default": "basic",
+            "description": "Depth of extraction - 'basic' or 'advanced', if usrls are linkedin use 'advanced' or if explicitly told to use advanced",
+            "enum": [
+              "basic",
+              "advanced"
+            ],
+            "type": "string"
+          },
+          "format": {
+            "default": "markdown",
+            "description": "The format of the extracted web page content. markdown returns content in markdown format. text returns plain text and may increase latency.",
+            "enum": [
+              "markdown",
+              "text"
+            ],
+            "type": "string"
+          },
+          "include_favicon": {
+            "default": false,
+            "description": "Whether to include the favicon URL for each result",
+            "type": "boolean"
+          },
+          "include_images": {
+            "default": false,
+            "description": "Include a list of images extracted from the urls in the response",
+            "type": "boolean"
+          },
+          "urls": {
+            "description": "List of URLs to extract content from",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "urls"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

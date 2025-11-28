@@ -1,0 +1,26 @@
+{
+  "tools": {
+    "search-memories": {
+      "description": "Search through stored memories. This method is called ANYTIME the user asks anything.",
+      "maps_to": "search-memories",
+      "server": "mem0",
+      "inputSchema": {
+        "properties": {
+          "query": {
+            "description": "The search query. This is the query that the user has asked for. Example: 'What did I tell you about the weather last week?' or 'What did I tell you about my friend John?'",
+            "type": "string"
+          },
+          "userId": {
+            "description": "User ID for memory storage. If not provided explicitly, use a generic user ID like, 'mem0-mcp-user'",
+            "type": "string"
+          }
+        },
+        "required": [
+          "query",
+          "userId"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

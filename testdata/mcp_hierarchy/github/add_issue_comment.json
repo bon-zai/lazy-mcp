@@ -1,0 +1,32 @@
+{
+  "tools": {
+    "add_issue_comment": {
+      "description": "Add a comment to an existing issue",
+      "maps_to": "add_issue_comment",
+      "server": "github",
+      "inputSchema": {
+        "properties": {
+          "body": {
+            "type": "string"
+          },
+          "issue_number": {
+            "type": "number"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "repo": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "owner",
+          "repo",
+          "issue_number",
+          "body"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

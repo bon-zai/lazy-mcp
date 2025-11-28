@@ -1,0 +1,81 @@
+{
+  "tools": {
+    "tavily_map": {
+      "description": "Map and discover the structure of a website by finding all its URLs and pages. Use this tool when you need to understand a website's organization, find specific pages, or get an overview of all available content without extracting the actual text. Returns a structured list of URLs and their relationships. Useful for site exploration, finding documentation pages, or understanding how a website is organized.",
+      "maps_to": "tavily_map",
+      "server": "tavily",
+      "inputSchema": {
+        "properties": {
+          "allow_external": {
+            "default": true,
+            "description": "Whether to return external links in the final response",
+            "type": "boolean"
+          },
+          "exclude_domains": {
+            "default": [],
+            "description": "Regex patterns to exclude URLs from specific domains or subdomains",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "exclude_paths": {
+            "default": [],
+            "description": "Regex patterns to exclude URLs from the crawl with specific path patterns",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "instructions": {
+            "default": "",
+            "description": "Natural language instructions for the crawler",
+            "type": "string"
+          },
+          "limit": {
+            "default": 50,
+            "description": "Total number of links the crawler will process before stopping",
+            "minimum": 1,
+            "type": "integer"
+          },
+          "max_breadth": {
+            "default": 20,
+            "description": "Max number of links to follow per level of the graph (i.e., per page)",
+            "minimum": 1,
+            "type": "integer"
+          },
+          "max_depth": {
+            "default": 1,
+            "description": "Max depth of the mapping. Defines how far from the base URL the crawler can explore",
+            "minimum": 1,
+            "type": "integer"
+          },
+          "select_domains": {
+            "default": [],
+            "description": "Regex patterns to restrict crawling to specific domains or subdomains (e.g., ^docs\\.example\\.com$)",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "select_paths": {
+            "default": [],
+            "description": "Regex patterns to select only URLs with specific path patterns (e.g., /docs/.*, /api/v1.*)",
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "url": {
+            "description": "The root URL to begin the mapping",
+            "type": "string"
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}
