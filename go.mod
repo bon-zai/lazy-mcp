@@ -1,6 +1,6 @@
 module github.com/voicetreelab/lazy-mcp
 
-go 1.24.0
+go 1.23
 
 require (
 	github.com/TBXark/optional-go v0.0.1
