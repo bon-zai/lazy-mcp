@@ -1,7 +1,7 @@
 {
   "mcpProxy": {
     "baseURL": "http://localhost",
-    "addr": ":${PORT:-8080}",
+    "addr": ":8080",
     "name": "MCP Lazy Load Proxy - PERFORMANCE EDITION",
     "version": "5.2.0",
     "type": "sse",
