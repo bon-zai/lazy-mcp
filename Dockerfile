@@ -17,7 +17,7 @@ RUN ln -s /usr/local/lib/node_modules/npm/bin/npm-cli.js /usr/local/bin/npm && \
     ln -s /usr/local/bin/node /usr/local/bin/nodejs
 
 COPY --from=builder /app/build/mcp-proxy /main
-COPY --from=builder /app/config.json /config/config.json
+COPY --from=builder /app/config.railway.json /config/config.json
 COPY --from=builder /app/testdata /testdata
 
 ENTRYPOINT ["/main"]
