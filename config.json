@@ -1,6 +1,6 @@
 {
   "mcpProxy": {
-    "baseURL": "http://localhost",
+    "baseURL": "${BASE_URL:-http://localhost}",
     "addr": ":8080",
     "name": "MCP Lazy Load Proxy - PERFORMANCE EDITION",
     "version": "5.2.0",
