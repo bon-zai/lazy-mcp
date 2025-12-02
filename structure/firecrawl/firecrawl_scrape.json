@@ -1,0 +1,231 @@
+{
+  "tools": {
+    "firecrawl_scrape": {
+      "description": "\nScrape content from a single URL with advanced options. \nThis is the most powerful, fastest and most reliable scraper tool, if available you should always default to using this tool for any web scraping needs.\n\n**Best for:** Single page content extraction, when you know exactly which page contains the information.\n**Not recommended for:** Multiple pages (use batch_scrape), unknown page (use search), structured data (use extract).\n**Common mistakes:** Using scrape for a list of URLs (use batch_scrape instead). If batch scrape doesnt work, just use scrape and call it multiple times.\n**Other Features:** Use 'branding' format to extract brand identity (colors, fonts, typography, spacing, UI components) for design analysis or style replication.\n**Prompt Example:** \"Get the content of the page at https://example.com.\"\n**Usage Example:**\n```json\n{\n  \"name\": \"firecrawl_scrape\",\n  \"arguments\": {\n    \"url\": \"https://example.com\",\n    \"formats\": [\"markdown\"],\n    \"maxAge\": 172800000\n  }\n}\n```\n**Performance:** Add maxAge parameter for 500% faster scrapes using cached data.\n**Returns:** Markdown, HTML, or other formats as specified.\n\n",
+      "maps_to": "firecrawl_scrape",
+      "server": "firecrawl",
+      "inputSchema": {
+        "properties": {
+          "actions": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "direction": {
+                  "enum": [
+                    "up",
+                    "down"
+                  ],
+                  "type": "string"
+                },
+                "fullPage": {
+                  "type": "boolean"
+                },
+                "key": {
+                  "type": "string"
+                },
+                "milliseconds": {
+                  "type": "number"
+                },
+                "script": {
+                  "type": "string"
+                },
+                "selector": {
+                  "type": "string"
+                },
+                "text": {
+                  "type": "string"
+                },
+                "type": {
+                  "enum": [
+                    "wait",
+                    "screenshot",
+                    "scroll",
+                    "scrape",
+                    "click",
+                    "write",
+                    "press",
+                    "executeJavascript",
+                    "generatePDF"
+                  ],
+                  "type": "string"
+                }
+              },
+              "required": [
+                "type"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "excludeTags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "formats": {
+            "items": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "markdown",
+                    "html",
+                    "rawHtml",
+                    "screenshot",
+                    "links",
+                    "summary",
+                    "changeTracking",
+                    "branding"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "prompt": {
+                      "type": "string"
+                    },
+                    "schema": {
+                      "additionalProperties": {},
+                      "propertyNames": {
+                        "type": "string"
+                      },
+                      "type": "object"
+                    },
+                    "type": {
+                      "const": "json",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ],
+                  "type": "object"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "fullPage": {
+                      "type": "boolean"
+                    },
+                    "quality": {
+                      "type": "number"
+                    },
+                    "type": {
+                      "const": "screenshot",
+                      "type": "string"
+                    },
+                    "viewport": {
+                      "additionalProperties": false,
+                      "properties": {
+                        "height": {
+                          "type": "number"
+                        },
+                        "width": {
+                          "type": "number"
+                        }
+                      },
+                      "required": [
+                        "width",
+                        "height"
+                      ],
+                      "type": "object"
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              ]
+            },
+            "type": "array"
+          },
+          "includeTags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "location": {
+            "additionalProperties": false,
+            "properties": {
+              "country": {
+                "type": "string"
+              },
+              "languages": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              }
+            },
+            "type": "object"
+          },
+          "maxAge": {
+            "type": "number"
+          },
+          "mobile": {
+            "type": "boolean"
+          },
+          "onlyMainContent": {
+            "type": "boolean"
+          },
+          "parsers": {
+            "items": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "pdf"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "additionalProperties": false,
+                  "properties": {
+                    "maxPages": {
+                      "maximum": 10000,
+                      "minimum": 1,
+                      "type": "integer"
+                    },
+                    "type": {
+                      "enum": [
+                        "pdf"
+                      ],
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "type"
+                  ],
+                  "type": "object"
+                }
+              ]
+            },
+            "type": "array"
+          },
+          "removeBase64Images": {
+            "type": "boolean"
+          },
+          "skipTlsVerification": {
+            "type": "boolean"
+          },
+          "storeInCache": {
+            "type": "boolean"
+          },
+          "url": {
+            "format": "uri",
+            "type": "string"
+          },
+          "waitFor": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "url"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

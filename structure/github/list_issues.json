@@ -1,0 +1,62 @@
+{
+  "tools": {
+    "list_issues": {
+      "description": "List issues in a GitHub repository with filtering options",
+      "maps_to": "list_issues",
+      "server": "github",
+      "inputSchema": {
+        "properties": {
+          "direction": {
+            "enum": [
+              "asc",
+              "desc"
+            ],
+            "type": "string"
+          },
+          "labels": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "page": {
+            "type": "number"
+          },
+          "per_page": {
+            "type": "number"
+          },
+          "repo": {
+            "type": "string"
+          },
+          "since": {
+            "type": "string"
+          },
+          "sort": {
+            "enum": [
+              "created",
+              "updated",
+              "comments"
+            ],
+            "type": "string"
+          },
+          "state": {
+            "enum": [
+              "open",
+              "closed",
+              "all"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "owner",
+          "repo"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "tools": {
+    "browser_drag": {
+      "description": "Perform drag and drop between two elements",
+      "maps_to": "browser_drag",
+      "server": "playwright",
+      "inputSchema": {
+        "properties": {
+          "endElement": {
+            "description": "Human-readable target element description used to obtain the permission to interact with the element",
+            "type": "string"
+          },
+          "endRef": {
+            "description": "Exact target element reference from the page snapshot",
+            "type": "string"
+          },
+          "startElement": {
+            "description": "Human-readable source element description used to obtain the permission to interact with the element",
+            "type": "string"
+          },
+          "startRef": {
+            "description": "Exact source element reference from the page snapshot",
+            "type": "string"
+          }
+        },
+        "required": [
+          "startElement",
+          "startRef",
+          "endElement",
+          "endRef"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

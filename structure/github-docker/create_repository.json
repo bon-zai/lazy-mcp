@@ -1,0 +1,37 @@
+{
+  "tools": {
+    "create_repository": {
+      "description": "Create a new GitHub repository in your account or specified organization",
+      "maps_to": "create_repository",
+      "server": "github-docker",
+      "inputSchema": {
+        "properties": {
+          "autoInit": {
+            "description": "Initialize with README",
+            "type": "boolean"
+          },
+          "description": {
+            "description": "Repository description",
+            "type": "string"
+          },
+          "name": {
+            "description": "Repository name",
+            "type": "string"
+          },
+          "organization": {
+            "description": "Organization to create the repository in (omit to create in your personal account)",
+            "type": "string"
+          },
+          "private": {
+            "description": "Whether repo should be private",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

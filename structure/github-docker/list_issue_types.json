@@ -1,0 +1,21 @@
+{
+  "tools": {
+    "list_issue_types": {
+      "description": "List supported issue types for repository owner (organization).",
+      "maps_to": "list_issue_types",
+      "server": "github-docker",
+      "inputSchema": {
+        "properties": {
+          "owner": {
+            "description": "The organization owner of the repository",
+            "type": "string"
+          }
+        },
+        "required": [
+          "owner"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

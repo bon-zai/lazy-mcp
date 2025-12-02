@@ -1,11 +1,9 @@
 {
   "mcpProxy": {
-    "baseURL": "${BASE_URL}",
-    "addr": ":8080",
     "name": "MCP Lazy Load Proxy - PERFORMANCE EDITION",
     "version": "5.2.0",
-    "type": "sse",
-    "hierarchyPath": "testdata/mcp_hierarchy",
+    "type": "stdio",
+    "hierarchyPath": "c:\\All-Beta-Builds\\lazy-mcp\\testdata\\mcp_hierarchy",
     "options": {
       "lazyLoad": true
     }
@@ -50,22 +48,6 @@
         "c:\\"
       ],
       "env": {},
-      "options": {
-        "lazyLoad": true
-      }
-    },
-    "mem0": {
-      "transportType": "stdio",
-      "command": "cmd",
-      "args": [
-        "/c",
-        "npx",
-        "-y",
-        "@mem0/mcp-server"
-      ],
-      "env": {
-        "MEM0_API_KEY": "${MEM0_API_KEY}"
-      },
       "options": {
         "lazyLoad": true
       }
@@ -152,6 +134,26 @@
         "--header",
         "Authorization:Bearer ${TAVILY_API_KEY}"
       ]
+    },
+    "desktop-commander": {
+      "transportType": "stdio",
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@smithery/cli@latest",
+        "run",
+        "@wonderwhy-er/desktop-commander",
+        "--key",
+        "0fca738c-13a2-41c1-8d9a-0c14131ebcb3",
+        "--profile",
+        "sacred-felidae-XOUu2j"
+      ],
+      "env": {},
+      "options": {
+        "lazyLoad": true
+      }
     }
   }
 }

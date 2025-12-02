@@ -1,0 +1,35 @@
+{
+  "tools": {
+    "create_branch": {
+      "description": "Create a new branch in a GitHub repository",
+      "maps_to": "create_branch",
+      "server": "github",
+      "inputSchema": {
+        "properties": {
+          "branch": {
+            "description": "Name for the new branch",
+            "type": "string"
+          },
+          "from_branch": {
+            "description": "Optional: source branch to create from (defaults to the repository's default branch)",
+            "type": "string"
+          },
+          "owner": {
+            "description": "Repository owner (username or organization)",
+            "type": "string"
+          },
+          "repo": {
+            "description": "Repository name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "owner",
+          "repo",
+          "branch"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

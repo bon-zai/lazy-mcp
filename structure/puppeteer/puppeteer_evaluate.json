@@ -1,0 +1,21 @@
+{
+  "tools": {
+    "puppeteer_evaluate": {
+      "description": "Execute JavaScript in the browser console",
+      "maps_to": "puppeteer_evaluate",
+      "server": "puppeteer",
+      "inputSchema": {
+        "properties": {
+          "script": {
+            "description": "JavaScript code to execute",
+            "type": "string"
+          }
+        },
+        "required": [
+          "script"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

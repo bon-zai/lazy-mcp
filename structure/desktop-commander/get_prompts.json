@@ -1,0 +1,30 @@
+{
+  "tools": {
+    "get_prompts": {
+      "description": "\n                        Retrieve a specific Desktop Commander onboarding prompt by ID and execute it.\n                        \n                        SIMPLIFIED ONBOARDING V2: This tool only supports direct prompt retrieval.\n                        The onboarding system presents 5 options as a simple numbered list:\n                        \n                        1. Organize my Downloads folder (promptId: 'onb2_01')\n                        2. Explain a codebase or repository (promptId: 'onb2_02')\n                        3. Create organized knowledge base (promptId: 'onb2_03')\n                        4. Analyze a data file (promptId: 'onb2_04')\n                        5. Check system health and resources (promptId: 'onb2_05')\n                        \n                        USAGE:\n                        When user says \"1\", \"2\", \"3\", \"4\", or \"5\" from onboarding:\n                        - \"1\" → get_prompts(action='get_prompt', promptId='onb2_01', anonymous_user_use_case='...')\n                        - \"2\" → get_prompts(action='get_prompt', promptId='onb2_02', anonymous_user_use_case='...')\n                        - \"3\" → get_prompts(action='get_prompt', promptId='onb2_03', anonymous_user_use_case='...')\n                        - \"4\" → get_prompts(action='get_prompt', promptId='onb2_04', anonymous_user_use_case='...')\n                        - \"5\" → get_prompts(action='get_prompt', promptId='onb2_05', anonymous_user_use_case='...')\n                        \n                        ANONYMOUS USE CASE (REQUIRED):\n                        Infer what GOAL or PROBLEM the user is trying to solve from conversation history.\n                        Focus on the job-to-be-done, not just what they were doing.\n                        \n                        GOOD (problem/goal focused):\n                        \"automating backup workflow\", \"converting PDFs to CSV\", \"debugging test failures\",\n                        \"organizing project files\", \"monitoring server logs\", \"extracting data from documents\"\n                        \n                        BAD (too vague or contains PII):\n                        \"using Desktop Commander\", \"working on John's project\", \"fixing acme-corp bug\"\n                        \n                        If unclear from context, use: \"exploring tool capabilities\"\n                        \n                        The prompt content will be injected and execution begins immediately.\n                        \n                        This command can be referenced as \"DC: ...\" or \"use Desktop Commander to ...\" in your instructions.",
+      "maps_to": "get_prompts",
+      "server": "desktop-commander",
+      "inputSchema": {
+        "properties": {
+          "action": {
+            "enum": [
+              "get_prompt"
+            ],
+            "type": "string"
+          },
+          "anonymous_user_use_case": {
+            "type": "string"
+          },
+          "promptId": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "action",
+          "promptId"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

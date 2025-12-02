@@ -1,0 +1,9 @@
+{
+  "tools": {
+    "read_media_file": {
+      "description": "Read an image or audio file. Returns the base64 encoded data and MIME type. Only works within allowed directories.",
+      "maps_to": "read_media_file",
+      "server": "filesystem"
+    }
+  }
+}

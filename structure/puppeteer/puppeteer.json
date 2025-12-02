@@ -1,0 +1,3 @@
+{
+  "overview": "puppeteer: 7 tools; puppeteer_click -\u003e Click an element on the page, puppeteer_evaluate -\u003e Execute JavaScript in the browser console, puppeteer_fill -\u003e Fill out an input field, puppeteer_hover -\u003e Hover an element on the page, puppeteer_navigate -\u003e Navigate to a URL, puppeteer_screenshot -\u003e Take a screenshot of the current page or a specific element, puppeteer_select -\u003e Select an element on the page with Select tag"
+}

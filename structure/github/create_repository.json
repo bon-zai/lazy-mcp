@@ -1,0 +1,33 @@
+{
+  "tools": {
+    "create_repository": {
+      "description": "Create a new GitHub repository in your account",
+      "maps_to": "create_repository",
+      "server": "github",
+      "inputSchema": {
+        "properties": {
+          "autoInit": {
+            "description": "Initialize with README.md",
+            "type": "boolean"
+          },
+          "description": {
+            "description": "Repository description",
+            "type": "string"
+          },
+          "name": {
+            "description": "Repository name",
+            "type": "string"
+          },
+          "private": {
+            "description": "Whether the repository should be private",
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "name"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

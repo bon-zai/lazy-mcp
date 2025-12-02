@@ -1,0 +1,44 @@
+{
+  "tools": {
+    "search_users": {
+      "description": "Search for users on GitHub",
+      "maps_to": "search_users",
+      "server": "github",
+      "inputSchema": {
+        "properties": {
+          "order": {
+            "enum": [
+              "asc",
+              "desc"
+            ],
+            "type": "string"
+          },
+          "page": {
+            "minimum": 1,
+            "type": "number"
+          },
+          "per_page": {
+            "maximum": 100,
+            "minimum": 1,
+            "type": "number"
+          },
+          "q": {
+            "type": "string"
+          },
+          "sort": {
+            "enum": [
+              "followers",
+              "repositories",
+              "joined"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "q"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

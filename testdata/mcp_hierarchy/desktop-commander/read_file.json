@@ -1,0 +1,32 @@
+{
+  "tools": {
+    "read_file": {
+      "description": "\n                        Read the contents of a file from the file system or a URL with optional offset and length parameters.\n                        \n                        Prefer this over 'execute_command' with cat/type for viewing files.\n                        \n                        Supports partial file reading with:\n                        - 'offset' (start line, default: 0)\n                          * Positive: Start from line N (0-based indexing)\n                          * Negative: Read last N lines from end (tail behavior)\n                        - 'length' (max lines to read, default: configurable via 'fileReadLineLimit' setting, initially 1000)\n                          * Used with positive offsets for range reading\n                          * Ignored when offset is negative (reads all requested tail lines)\n                        \n                        Examples:\n                        - offset: 0, length: 10     → First 10 lines\n                        - offset: 100, length: 5    → Lines 100-104\n                        - offset: -20               → Last 20 lines  \n                        - offset: -5, length: 10    → Last 5 lines (length ignored)\n                        \n                        Performance optimizations:\n                        - Large files with negative offsets use reverse reading for efficiency\n                        - Large files with deep positive offsets use byte estimation\n                        - Small files use fast readline streaming\n                        \n                        When reading from the file system, only works within allowed directories.\n                        Can fetch content from URLs when isUrl parameter is set to true\n                        (URLs are always read in full regardless of offset/length).\n                        \n                        Handles text files normally and image files are returned as viewable images.\n                        Recognized image types: PNG, JPEG, GIF, WebP.\n                        \n                        IMPORTANT: Always use absolute paths for reliability. Paths are automatically normalized regardless of slash direction. Relative paths may fail as they depend on the current working directory. Tilde paths (~/...) might not work in all contexts. Unless the user explicitly asks for relative paths, use absolute paths.\n                        This command can be referenced as \"DC: ...\" or \"use Desktop Commander to ...\" in your instructions.",
+      "maps_to": "read_file",
+      "server": "desktop-commander",
+      "inputSchema": {
+        "properties": {
+          "isUrl": {
+            "default": false,
+            "type": "boolean"
+          },
+          "length": {
+            "default": 1000,
+            "type": "number"
+          },
+          "offset": {
+            "default": 0,
+            "type": "number"
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "path"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

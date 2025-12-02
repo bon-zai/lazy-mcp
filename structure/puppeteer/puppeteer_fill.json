@@ -1,0 +1,26 @@
+{
+  "tools": {
+    "puppeteer_fill": {
+      "description": "Fill out an input field",
+      "maps_to": "puppeteer_fill",
+      "server": "puppeteer",
+      "inputSchema": {
+        "properties": {
+          "selector": {
+            "description": "CSS selector for input field",
+            "type": "string"
+          },
+          "value": {
+            "description": "Value to fill",
+            "type": "string"
+          }
+        },
+        "required": [
+          "selector",
+          "value"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

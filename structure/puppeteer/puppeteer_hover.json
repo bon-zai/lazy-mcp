@@ -1,0 +1,21 @@
+{
+  "tools": {
+    "puppeteer_hover": {
+      "description": "Hover an element on the page",
+      "maps_to": "puppeteer_hover",
+      "server": "puppeteer",
+      "inputSchema": {
+        "properties": {
+          "selector": {
+            "description": "CSS selector for element to hover",
+            "type": "string"
+          }
+        },
+        "required": [
+          "selector"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

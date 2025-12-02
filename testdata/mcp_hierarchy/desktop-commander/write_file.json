@@ -1,0 +1,32 @@
+{
+  "tools": {
+    "write_file": {
+      "description": "\n                        Write or append to file contents. \n\n                        CHUNKING IS STANDARD PRACTICE: Always write files in chunks of 25-30 lines maximum.\n                        This is the normal, recommended way to write files - not an emergency measure.\n\n                        STANDARD PROCESS FOR ANY FILE:\n                        1. FIRST → write_file(filePath, firstChunk, {mode: 'rewrite'})  [≤30 lines]\n                        2. THEN → write_file(filePath, secondChunk, {mode: 'append'})   [≤30 lines]\n                        3. CONTINUE → write_file(filePath, nextChunk, {mode: 'append'}) [≤30 lines]\n\n                        ALWAYS CHUNK PROACTIVELY - don't wait for performance warnings!\n\n                        WHEN TO CHUNK (always be proactive):\n                        1. Any file expected to be longer than 25-30 lines\n                        2. When writing multiple files in sequence\n                        3. When creating documentation, code files, or configuration files\n                        \n                        HANDLING CONTINUATION (\"Continue\" prompts):\n                        If user asks to \"Continue\" after an incomplete operation:\n                        1. Read the file to see what was successfully written\n                        2. Continue writing ONLY the remaining content using {mode: 'append'}\n                        3. Keep chunks to 25-30 lines each\n                        \n                        Files over 50 lines will generate performance notes but are still written successfully.\n                        Only works within allowed directories.\n                        \n                        IMPORTANT: Always use absolute paths for reliability. Paths are automatically normalized regardless of slash direction. Relative paths may fail as they depend on the current working directory. Tilde paths (~/...) might not work in all contexts. Unless the user explicitly asks for relative paths, use absolute paths.\n                        This command can be referenced as \"DC: ...\" or \"use Desktop Commander to ...\" in your instructions.",
+      "maps_to": "write_file",
+      "server": "desktop-commander",
+      "inputSchema": {
+        "properties": {
+          "content": {
+            "type": "string"
+          },
+          "mode": {
+            "default": "rewrite",
+            "enum": [
+              "rewrite",
+              "append"
+            ],
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "path",
+          "content"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

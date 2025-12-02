@@ -1,0 +1,41 @@
+{
+  "tools": {
+    "delete_file": {
+      "description": "Delete a file from a GitHub repository",
+      "maps_to": "delete_file",
+      "server": "github-docker",
+      "inputSchema": {
+        "properties": {
+          "branch": {
+            "description": "Branch to delete the file from",
+            "type": "string"
+          },
+          "message": {
+            "description": "Commit message",
+            "type": "string"
+          },
+          "owner": {
+            "description": "Repository owner (username or organization)",
+            "type": "string"
+          },
+          "path": {
+            "description": "Path to the file to delete",
+            "type": "string"
+          },
+          "repo": {
+            "description": "Repository name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "owner",
+          "repo",
+          "path",
+          "message",
+          "branch"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

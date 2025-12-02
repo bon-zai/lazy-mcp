@@ -1,0 +1,28 @@
+{
+  "tools": {
+    "get_issue": {
+      "description": "Get details of a specific issue in a GitHub repository.",
+      "maps_to": "get_issue",
+      "server": "github",
+      "inputSchema": {
+        "properties": {
+          "issue_number": {
+            "type": "number"
+          },
+          "owner": {
+            "type": "string"
+          },
+          "repo": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "owner",
+          "repo",
+          "issue_number"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

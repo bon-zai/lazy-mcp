@@ -1,0 +1,35 @@
+{
+  "tools": {
+    "update_pull_request_branch": {
+      "description": "Update a pull request branch with the latest changes from the base branch",
+      "maps_to": "update_pull_request_branch",
+      "server": "github",
+      "inputSchema": {
+        "properties": {
+          "expected_head_sha": {
+            "description": "The expected SHA of the pull request's HEAD ref",
+            "type": "string"
+          },
+          "owner": {
+            "description": "Repository owner (username or organization)",
+            "type": "string"
+          },
+          "pull_number": {
+            "description": "Pull request number",
+            "type": "number"
+          },
+          "repo": {
+            "description": "Repository name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "owner",
+          "repo",
+          "pull_number"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

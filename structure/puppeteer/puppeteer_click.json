@@ -1,0 +1,21 @@
+{
+  "tools": {
+    "puppeteer_click": {
+      "description": "Click an element on the page",
+      "maps_to": "puppeteer_click",
+      "server": "puppeteer",
+      "inputSchema": {
+        "properties": {
+          "selector": {
+            "description": "CSS selector for element to click",
+            "type": "string"
+          }
+        },
+        "required": [
+          "selector"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

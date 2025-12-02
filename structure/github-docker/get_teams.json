@@ -1,0 +1,18 @@
+{
+  "tools": {
+    "get_teams": {
+      "description": "Get details of the teams the user is a member of. Limited to organizations accessible with current credentials",
+      "maps_to": "get_teams",
+      "server": "github-docker",
+      "inputSchema": {
+        "properties": {
+          "user": {
+            "description": "Username to get teams for. If not provided, uses the authenticated user.",
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  }
+}

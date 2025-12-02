@@ -1,0 +1,31 @@
+{
+  "tools": {
+    "get_tag": {
+      "description": "Get details about a specific git tag in a GitHub repository",
+      "maps_to": "get_tag",
+      "server": "github-docker",
+      "inputSchema": {
+        "properties": {
+          "owner": {
+            "description": "Repository owner",
+            "type": "string"
+          },
+          "repo": {
+            "description": "Repository name",
+            "type": "string"
+          },
+          "tag": {
+            "description": "Tag name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "owner",
+          "repo",
+          "tag"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

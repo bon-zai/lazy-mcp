@@ -1,0 +1,30 @@
+{
+  "tools": {
+    "fork_repository": {
+      "description": "Fork a GitHub repository to your account or specified organization",
+      "maps_to": "fork_repository",
+      "server": "github",
+      "inputSchema": {
+        "properties": {
+          "organization": {
+            "description": "Optional: organization to fork to (defaults to your personal account)",
+            "type": "string"
+          },
+          "owner": {
+            "description": "Repository owner (username or organization)",
+            "type": "string"
+          },
+          "repo": {
+            "description": "Repository name",
+            "type": "string"
+          }
+        },
+        "required": [
+          "owner",
+          "repo"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

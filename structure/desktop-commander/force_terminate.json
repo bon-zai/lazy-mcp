@@ -1,0 +1,20 @@
+{
+  "tools": {
+    "force_terminate": {
+      "description": "\n                        Force terminate a running terminal session.\n                        \n                        This command can be referenced as \"DC: ...\" or \"use Desktop Commander to ...\" in your instructions.",
+      "maps_to": "force_terminate",
+      "server": "desktop-commander",
+      "inputSchema": {
+        "properties": {
+          "pid": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "pid"
+        ],
+        "type": "object"
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "tools": {
+    "get_recent_tool_calls": {
+      "description": "\n                        Get recent tool call history with their arguments and outputs.\n                        Returns chronological list of tool calls made during this session.\n                        \n                        Useful for:\n                        - Onboarding new chats about work already done\n                        - Recovering context after chat history loss\n                        - Debugging tool call sequences\n                        \n                        Note: Does not track its own calls or other meta/query tools.\n                        History kept in memory (last 1000 calls, lost on restart).\n                        \n                        This command can be referenced as \"DC: ...\" or \"use Desktop Commander to ...\" in your instructions.",
+      "maps_to": "get_recent_tool_calls",
+      "server": "desktop-commander",
+      "inputSchema": {
+        "properties": {
+          "maxResults": {
+            "default": 50,
+            "maximum": 1000,
+            "minimum": 1,
+            "type": "number"
+          },
+          "since": {
+            "format": "date-time",
+            "type": "string"
+          },
+          "toolName": {
+            "type": "string"
+          }
+        },
+        "type": "object"
+      }
+    }
+  }
+}
